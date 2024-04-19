@@ -32,3 +32,18 @@ export default function MealDetailsPage({ params }) {
     </main>
   </>
 }
+
+export async function getStaticPaths() {
+  // Fetch meal slugs from your data source
+  // For example, from an API or a database
+  const mealSlugs = [/* Array of meal slugs */];
+
+  // Map meal slugs to the params object required by Next.js
+  const paths = mealSlugs.map((slug) => ({
+    params: { mealSlug: slug },
+  }));
+
+  return { paths, fallback: false };
+}
+
+// Rest of your page component
